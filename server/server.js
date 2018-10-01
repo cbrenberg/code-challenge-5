@@ -11,4 +11,17 @@ app.use(express.static('server/public'));
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
+});
+
+app.get('/messages', (req, res) => {
+  console.log('/messages GET hit');
+  pool.query(`SELECT * FROM "messages"`)
+    .then((results) => {
+      console.log('Back from GET messages with:', results.rows);
+      res.send(results.rows);
+    })
+    .catch((error) => {
+      console.log('Error getting messages');
+      res.sendStatus(500);
+    })
 })
