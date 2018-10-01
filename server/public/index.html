@@ -1,27 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./styles/styles.css">
   <title>Message Board</title>
 </head>
+
 <body ng-app="MessageBoardApp" ng-controller="MessagesController as vm">
-  <h1>Message Board</h1>
+  <header>
+    <h1>Message Board</h1>
+    <form id="messageForm">
+      <input id="nameIn" type="text" placeholder="your name" ng-model="vm.messageToAdd.name">
+      <input id="messageIn" type="text" placeholder="type your message here" ng-model="vm.messageToAdd.message">
+      <input id="postButton" type="submit" value="POST" ng-click="vm.postMessage()">
+    </form>
+  </header>
+  
 
-  <form>
-    <input type="text" placeholder="your name" ng-model="vm.messageToAdd.name">
-    <input type="text" placeholder="type your message here" ng-model="vm.messageToAdd.message">
-    <input type="submit" value="POST" ng-click="vm.postMessage()">
-  </form>
+  <div id="messagesContainer">
+    
 
-  <div ng-repeat="message in vm.messages">
-    <span>
-      {{message.name}}:
-    </span>
-    <span>
-      {{message.message}}
-    </span>
+    <br>
+
+    <div ng-repeat="message in vm.messages" class="messageDiv">
+      <div>
+        <strong>{{message.name}}:</strong>
+      </div>
+      <div>
+        {{message.message}}
+      </div>
+    </div>
   </div>
 
   <!-- <pre>{{vm | json}}</pre> -->
@@ -29,4 +40,5 @@
   <script src="./vendors/angular.min.js"></script>
   <script src="./scripts/client.js"></script>
 </body>
+
 </html>

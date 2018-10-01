@@ -1,0 +1,92 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+}
+
+header {
+  background-color: darkgray;
+  width: 100vw;
+  height: 10vh;
+  margin: 0;
+  padding: 2rem 0 2rem 1rem;
+}
+
+header h1 {
+  color: white;
+  font-size: 3rem;
+  margin: 0 0 0 2rem;
+}
+
+#messagesContainer {
+  height: 80vh;
+  width: 80vw;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+#messageForm {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+}
+
+#messageIn {
+  font-size: 1.3rem;
+  flex: 1.5;
+  height: 2rem;
+  border: none;
+  border-style: solid;
+  border-color: gainsboro;
+  border-width: 0px 0px 1px 0px;
+  margin-left: 1rem;
+}
+
+#nameIn {
+  font-size: 1.3rem;
+  height: 2rem;
+  border-style: solid;
+  border-color: gainsboro;
+  border-width: 0px 0px 1px 0px;
+}
+
+#postButton {
+  height: 2rem;
+  width: 10vw;
+  border: none;
+  background-color: darkgray;
+  color: white;
+  font-size: 1rem;
+  margin: 10px;
+  border-radius: 3px;
+}
+
+#postButton:hover {
+  background-color: darkslategray;
+  color: gainsboro;
+}
+
+/* input[type=text] {
+  -webkit-appearance: none;
+  appearance: none;
+} */
+
+.messageDiv {
+  padding: .8em;
+  background: white;
+  border-bottom: 1px solid gainsboro;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+h1 {
+  margin-left: 5vw;
+}
+
+strong {
+  margin-right: .4rem;
+}
