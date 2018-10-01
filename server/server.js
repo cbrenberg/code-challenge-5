@@ -25,3 +25,17 @@ app.get('/messages', (req, res) => {
       res.sendStatus(500);
     })
 })
+
+app.post('/messages', (req, res) => {
+  console.log('messages POST hit');
+  pool.query(`INSERT INTO "messages" ("name", "message")
+              VALUES ($1, $2);`, [req.body.name, req.body.message])
+    .then((results) => {
+      console.log('Back from POST with', results);
+      res.sendStatus(201);
+    })
+    .catch((error) => {
+      console.log('Error posting message', error);
+      res.sendStatus(500);
+    })
+})
