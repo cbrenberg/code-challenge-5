@@ -4,7 +4,10 @@ const app = angular.module('MessageBoardApp', [])
 
 app.controller('MessagesController', ['$http', function($http) {
   let vm = this;
-  vm.message="angular loaded";
+  vm.messageToAdd={
+    name: 'Luke',
+    message: 'Do your feedback'
+  };
 
   vm.getMessages = function () {
     $http.get('/messages')
@@ -16,7 +19,19 @@ app.controller('MessagesController', ['$http', function($http) {
       })
   }//end getMessages
 
+  vm.postMessage = function () {
+    $http.post('/messages', vm.messageToAdd)
+      .then(function(response) {
+        console.log('Message added', response.data);
+      })
+      .catch(function(error) {
+        console.log('Error posting message', error);
+      })
+  }
+  vm.postMessage();
 //get Message list on page load
 vm.getMessages();
+
+
 
 }])//end controller
