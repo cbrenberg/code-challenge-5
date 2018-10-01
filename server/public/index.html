@@ -9,7 +9,22 @@
 <body ng-app="MessageBoardApp" ng-controller="MessagesController as vm">
   <h1>Message Board</h1>
 
-  <pre>{{vm | json}}</pre>
+  <form>
+    <input type="text" placeholder="your name" ng-model="vm.messageToAdd.name">
+    <input type="text" placeholder="type your message here" ng-model="vm.messageToAdd.message">
+    <input type="submit" value="POST" ng-click="vm.postMessage()">
+  </form>
+
+  <div ng-repeat="message in vm.messages">
+    <span>
+      {{message.name}}:
+    </span>
+    <span>
+      {{message.message}}
+    </span>
+  </div>
+
+  <!-- <pre>{{vm | json}}</pre> -->
 
   <script src="./vendors/angular.min.js"></script>
   <script src="./scripts/client.js"></script>
