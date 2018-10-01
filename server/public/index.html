@@ -6,9 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Message Board</title>
 </head>
-<body>
+<body ng-app="MessageBoardApp" ng-controller="MessagesController as vm">
   <h1>Message Board</h1>
 
   <pre>{{vm | json}}</pre>
+
+  <script src="./vendors/angular.min.js"></script>
+  <script src="./scripts/client.js"></script>
 </body>
 </html>
